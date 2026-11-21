@@ -1,0 +1,106 @@
+---
+pageKey: home
+layout: base.njk
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+permalink: "{{ lang | purl('home') }}"
+---
+{%- set t = i18n[lang.code] -%}
+<section class="hero">
+  <div class="hero-art"><img src="{{ '/assets/img/art/disputa.jpg' | url }}" alt="{{ t.institute.pair[0].work }}" width="2880" height="2076" fetchpriority="high"></div>
+  <div class="hero-body">
+    <div class="wrap">
+      <p class="kicker"><span>{{ t.hero.kicker }}</span><span class="k-sep"> · </span><span>{{ t.hero.place }}</span></p>
+      <h1>{{ t.hero.title }}</h1>
+      <p class="hero-sub">{{ t.hero.sub }}</p>
+      <p class="hero-cta">
+        <a class="btn btn-gold" href="{{ lang | purl('institute') | url }}">{{ t.hero.cta1 }}</a>
+        <a class="btn btn-ghost" href="{{ lang | purl('support') | url }}">{{ t.hero.cta2 }}</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="creed">
+  <div class="wrap narrow reveal">
+    <svg class="creed-mark" aria-hidden="true"><use href="#mark"/></svg>
+    <blockquote>
+      <p class="creed-latin" lang="la">{{ t.creed.latin }}</p>
+      <p class="creed-gloss">{{ t.creed.gloss }}</p>
+      <cite>{{ t.creed.source }}</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="intro reveal">
+      <p class="label">{{ t.foundation.label }}</p>
+      <h2>{{ t.foundation.title }}</h2>
+      {%- for p in t.foundation.p %}
+      <p>{{ p }}</p>
+      {%- endfor %}
+    </div>
+    <ul class="pillars">
+      {%- for p in t.pillars %}
+      <li class="reveal"><span class="pillar-n">{{ p.n }}</span><h3>{{ p.title }}</h3><p>{{ p.text }}</p></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section teaser">
+  <div class="wrap teaser-in">
+    <figure class="teaser-art reveal"><img src="{{ '/assets/img/art/sassoferrato.jpg' | url }}" alt="{{ t.institute.marianAlt }}" width="1400" height="1761" loading="lazy"></figure>
+    <div class="teaser-text reveal">
+      <p class="label">{{ t.teaser.label }}</p>
+      <p class="kicker">{{ t.teaser.kicker }}</p>
+      <h2 lang="la">{{ t.teaser.title }}</h2>
+      <p>{{ t.teaser.p }}</p>
+      <p><a class="btn btn-gold" href="{{ lang | purl('institute') | url }}">{{ t.teaser.cta }}</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="label">{{ t.people.label }}</p>
+      <h2>{{ t.people.title }}</h2>
+    </div>
+    <div class="leader reveal">
+      <img class="leader-photo" src="{{ '/media/burke.jpg' | url }}" alt="{{ t.people.honName }}" width="620" height="780" loading="lazy">
+      <div class="leader-text">
+        <p class="role">{{ t.people.honLabel }}</p>
+        <h3>{{ t.people.honName }}</h3>
+        <p>{{ t.people.honBio }}</p>
+        <dl class="officers">
+          <div><dt>{{ t.people.presLabel }}</dt><dd>{{ t.people.presName }}</dd></div>
+        </dl>
+        <p class="pending">{{ t.people.note }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tint">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="label">{{ t.events.label }}</p>
+      <h2>{{ t.events.title }}</h2>
+      <p>{{ t.events.lede }}</p>
+    </div>
+    {% include "events-list.njk" %}
+    <p class="center"><a class="link-arrow" href="{{ lang | purl('events') | url }}">{{ t.events.all }}</a></p>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap narrow reveal">
+    <h2>{{ t.cta.title }}</h2>
+    <p>{{ t.cta.text }}</p>
+    <p><a class="btn btn-gold" href="{{ lang | purl('support') | url }}">{{ t.cta.button }}</a></p>
+  </div>
+</section>

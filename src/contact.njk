@@ -1,0 +1,32 @@
+---
+pageKey: contact
+layout: base.njk
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+permalink: "{{ lang | purl('contact') }}"
+---
+{%- set t = i18n[lang.code] -%}
+{%- set ph = t.contact -%}
+{% include "page-hero.njk" %}
+
+<section class="section">
+  <div class="wrap give">
+    <div class="give-how reveal">
+      <svg class="give-mark" aria-hidden="true"><use href="#mark"/></svg>
+      <p class="label">{{ t.contact.whereLabel }}</p>
+      <h2>{{ site.legalName }}</h2>
+      <p>{{ t.contact.city }}</p>
+      <p class="pending">{{ t.contact.pending }}</p>
+    </div>
+    <form class="form reveal" action="https://api.web3forms.com/submit" method="POST" data-not-connected="{{ t.form.notConnected }}" data-sending="{{ t.form.sending }}" data-thanks="{{ t.form.thanks }}" data-error="{{ t.form.error }}">
+      <h2>{{ t.contact.formTitle }}</h2>
+{% include "form-fields.njk" %}
+      <label class="field"><span>{{ t.contact.subject }}</span><input type="text" name="subject"></label>
+      <label class="field"><span>{{ t.form.message }}</span><textarea name="message" rows="6" required></textarea></label>
+      <p class="hint">{{ t.form.privacy }}</p>
+      <p class="form-actions"><button class="btn btn-gold" type="submit">{{ t.contact.send }}</button><span class="form-status" role="status"></span></p>
+    </form>
+  </div>
+</section>

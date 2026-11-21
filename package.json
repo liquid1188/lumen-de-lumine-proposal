@@ -1,0 +1,13 @@
+{
+  "name": "lumen-de-lumine",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "preview": "eleventy && node scripts/make-preview.mjs"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.8"
+  }
+}

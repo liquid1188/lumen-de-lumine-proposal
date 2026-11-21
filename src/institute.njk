@@ -1,0 +1,72 @@
+---
+pageKey: institute
+layout: base.njk
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+permalink: "{{ lang | purl('institute') }}"
+---
+{%- set t = i18n[lang.code] -%}
+{%- set ph = t.institute -%}
+{% include "page-hero.njk" %}
+
+<section class="section">
+  <div class="wrap split">
+    <div class="split-text reveal">
+      <p class="label">{{ t.institute.ideaLabel }}</p>
+      <h2>{{ t.institute.ideaTitle }}</h2>
+      {%- for p in t.institute.idea %}
+      <p>{{ p }}</p>
+      {%- endfor %}
+    </div>
+    <figure class="split-art reveal">
+      <img src="{{ '/assets/img/art/sassoferrato.jpg' | url }}" alt="{{ t.institute.marianAlt }}" width="1400" height="1761" loading="lazy">
+      <figcaption>{{ t.institute.marian }}</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="label">{{ t.institute.pairLabel }}</p>
+      <h2>{{ t.institute.pairTitle }}</h2>
+      <p>{{ t.institute.pairText }}</p>
+    </div>
+    <div class="pair">
+      <figure class="reveal">
+        <img src="{{ '/assets/img/art/disputa.jpg' | url }}" alt="{{ t.institute.pair[0].work }}" width="2880" height="2076" loading="lazy">
+        <figcaption><strong>{{ t.institute.pair[0].name }}</strong><span>{{ t.institute.pair[0].work }}</span></figcaption>
+      </figure>
+      <figure class="reveal">
+        <img src="{{ '/assets/img/art/athens.jpg' | url }}" alt="{{ t.institute.pair[1].work }}" width="2256" height="1452" loading="lazy">
+        <figcaption><strong>{{ t.institute.pair[1].name }}</strong><span>{{ t.institute.pair[1].work }}</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="label">{{ t.institute.houseLabel }}</p>
+      <h2>{{ t.institute.houseTitle }}</h2>
+    </div>
+    <ul class="house">
+      {%- for h in t.institute.house %}
+      <li class="reveal"><svg aria-hidden="true"><use href="#mark"/></svg><span>{{ h }}</span></li>
+      {%- endfor %}
+    </ul>
+    <p class="pending center">{{ t.institute.houseNote }}</p>
+  </div>
+</section>
+
+<section class="section section-tint">
+  <div class="wrap narrow center reveal">
+    <p class="label">{{ t.institute.statusLabel }}</p>
+    <h2>{{ t.institute.statusTitle }}</h2>
+    <p>{{ t.institute.status }}</p>
+    <p><a class="btn btn-gold" href="{{ lang | purl('support') | url }}">{{ t.institute.cta }}</a></p>
+  </div>
+</section>

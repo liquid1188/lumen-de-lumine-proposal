@@ -1,0 +1,87 @@
+{%- set t = i18n[lang.code] -%}
+{%- set other = langs | otherLang(lang.code) -%}
+<!doctype html>
+<html lang="{{ t.htmlLang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ t.titles[pageKey] }} · {{ site.name }} ({{ t.proposalShort }})</title>
+  <meta name="description" content="{{ t.hero.sub }}">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="alternate" hreflang="{{ other.code }}" href="{{ other | purl(pageKey) | url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | url }}">
+  <link rel="icon" href="{{ '/assets/img/mark.svg' | url }}" type="image/svg+xml">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body class="page-{{ pageKey }}">
+  <a class="skip" href="#main">{{ t.skip }}</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="mark" viewBox="0 0 64 64">
+      <g stroke="currentColor" stroke-linecap="round" fill="none">
+        <g stroke-width="1.6">
+          <path d="M32 3v11M32 50v11M3 32h11M50 32h11M11.5 11.5l7.8 7.8M44.7 44.7l7.8 7.8M52.5 11.5l-7.8 7.8M19.3 44.7l-7.8 7.8"/>
+        </g>
+        <g stroke-width="1">
+          <path d="M20.9 5.2l3.4 8.2M39.7 50.6l3.4 8.2M43.1 5.2l-3.4 8.2M24.3 50.6l-3.4 8.2M5.2 20.9l8.2 3.4M50.6 39.7l8.2 3.4M5.2 43.1l8.2-3.4M50.6 24.3l8.2-3.4"/>
+        </g>
+        <circle cx="32" cy="32" r="12.5" stroke-width="1.6"/>
+      </g>
+      <circle cx="32" cy="32" r="6.5" fill="currentColor"/>
+    </symbol>
+  </svg>
+
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-in">
+      <a class="brand" href="{{ lang | purl('home') | url }}" aria-label="{{ site.name }}">
+        <svg class="brand-mark" aria-hidden="true"><use href="#mark"/></svg>
+        <span class="brand-text">Lumen <i>de</i> Lumine</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav"><span></span><span></span><span class="sr">{{ t.menu }}</span></button>
+      <nav class="nav" id="nav" aria-label="{{ t.menu }}">
+        {%- for key in ["home", "institute", "events", "contact"] %}
+        <a href="{{ lang | purl(key) | url }}"{% if key == pageKey %} aria-current="page"{% endif %}>{{ t.nav[key] }}</a>
+        {%- endfor %}
+        <a class="btn btn-gold btn-sm" href="{{ lang | purl('support') | url }}">{{ t.nav.support }}</a>
+        <a class="lang" href="{{ other | purl(pageKey) | url }}" lang="{{ other.code }}" hreflang="{{ other.code }}">{{ other.label }}</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+{{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <svg class="footer-mark" aria-hidden="true"><use href="#mark"/></svg>
+          <p class="footer-name">Lumen <i>de</i> Lumine</p>
+          <p class="footer-tag">{{ t.footer.tagline }}</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          {%- for key in ["home", "institute", "events", "support", "contact"] %}
+          <a href="{{ lang | purl(key) | url }}">{{ t.nav[key] }}</a>
+          {%- endfor %}
+          <a href="{{ other | purl(pageKey) | url }}" lang="{{ other.code }}">{{ other.label }}</a>
+        </nav>
+      </div>
+      <div class="footer-base">
+        <span>{{ t.footer.legal }} · {{ t.footer.taxId }}</span>
+        <span><button type="button" class="desktop-toggle" id="desktopToggle" data-desktop="{{ t.footer.desktop }}" data-mobile="{{ t.footer.mobile }}">{{ t.footer.desktop }}</button><span class="dt-sep"> · </span>{{ t.footer.credit }} <a href="{{ site.designer.url }}" rel="noopener">{{ site.designer.name }}</a></span>
+      </div>
+      <p class="footer-credits"><strong>{{ t.footer.creditsLabel }}.</strong> {{ t.footer.credits }}</p>
+    </div>
+  </footer>
+
+  {%- if site.proposal %}
+  <div class="proposal-bar" role="note">{{ t.proposalBar }}</div>
+  {%- endif %}
+
+  <script src="{{ '/assets/js/main.js' | url }}" defer></script>
+</body>
+</html>

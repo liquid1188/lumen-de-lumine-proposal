@@ -1,0 +1,23 @@
+<ol class="events">
+  {%- for e in t.events.list %}
+  <li class="event reveal">
+    <div class="event-when">
+      <span class="tag tag-{{ e.status }}">{{ t.events[e.status] }}</span>
+      <span class="event-date">{{ e.date }}</span>
+      <span class="event-place">{{ e.place }}</span>
+    </div>
+    <div class="event-what">
+      <h3>{{ e.title }}</h3>
+      <p class="event-sub">{{ e.subtitle }}</p>
+      <p>{{ e.text }}</p>
+      {%- if e.links %}
+      <p class="event-links">
+        {%- for l in e.links %}
+        <a href="{{ site.icjfUrl }}{{ l.path }}" target="_blank" rel="noopener">{{ l.label }}</a>
+        {%- endfor %}
+      </p>
+      {%- endif %}
+    </div>
+  </li>
+  {%- endfor %}
+</ol>

@@ -1,0 +1,55 @@
+---
+pageKey: support
+layout: base.njk
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+permalink: "{{ lang | purl('support') }}"
+---
+{%- set t = i18n[lang.code] -%}
+{%- set ph = t.support -%}
+{% include "page-hero.njk" %}
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="label">{{ t.support.waysLabel }}</p>
+      <h2>{{ t.support.waysTitle }}</h2>
+    </div>
+    <ul class="ways">
+      {%- for w in t.support.ways %}
+      <li class="reveal"><span class="pillar-n">{{ ["I", "II", "III", "IV"][loop.index0] }}</span><h3>{{ w.title }}</h3><p>{{ w.text }}</p></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section section-tint">
+  <div class="wrap give">
+    <div class="give-how reveal">
+      <svg class="give-mark" aria-hidden="true"><use href="#mark"/></svg>
+      <h2>{{ t.support.howTitle }}</h2>
+      <p>{{ t.support.how }}</p>
+    </div>
+    <form class="form reveal" action="https://api.web3forms.com/submit" method="POST" data-not-connected="{{ t.form.notConnected }}" data-sending="{{ t.form.sending }}" data-thanks="{{ t.form.thanks }}" data-error="{{ t.form.error }}">
+      <h2>{{ t.support.formTitle }}</h2>
+      <input type="hidden" name="subject" value="Giving inquiry ({{ lang.code }})">
+{% include "form-fields.njk" %}
+      <div class="field-row">
+        <label class="field"><span>{{ t.support.country }}</span><input type="text" name="country" autocomplete="country-name"></label>
+        <label class="field"><span>{{ t.support.interest }}</span>
+          <select name="interest">
+            {%- for w in t.support.ways %}
+            <option>{{ w.title }}</option>
+            {%- endfor %}
+            <option>{{ t.support.other }}</option>
+          </select>
+        </label>
+      </div>
+      <label class="field"><span>{{ t.form.message }}</span><textarea name="message" rows="5"></textarea></label>
+      <p class="hint">{{ t.form.privacy }}</p>
+      <p class="form-actions"><button class="btn btn-gold" type="submit">{{ t.support.send }}</button><span class="form-status" role="status"></span></p>
+    </form>
+  </div>
+</section>
