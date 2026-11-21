@@ -17,7 +17,7 @@ export default {
   en: {
     htmlLang: "en",
     proposalBar:
-      "Design proposal by Lickity Split Web Design. This is not the Foundation's official website. All text is a draft for the Foundation to review.",
+      "Design proposal. Not the Foundation's official website.",
     proposalShort: "design proposal",
     skip: "Skip to content",
     menu: "Menu",
@@ -194,7 +194,7 @@ export default {
   it: {
     htmlLang: "it",
     proposalBar:
-      "Proposta di design di Lickity Split Web Design. Questo non è il sito ufficiale della Fondazione. Tutti i testi sono bozze da sottoporre alla Fondazione.",
+      "Proposta di design. Non è il sito ufficiale della Fondazione.",
     proposalShort: "proposta di design",
     skip: "Vai al contenuto",
     menu: "Menu",
