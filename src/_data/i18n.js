@@ -33,7 +33,7 @@ export default {
     },
     creed: {
       latin: "Deum de Deo, lumen de lumine, Deum verum de Deo vero.",
-      gloss: "God from God, Light from Light, true God from true God.",
+      gloss: "God from God, Light from Light, true God from true God.",
       source: "The Nicene Creed",
     },
     foundation: {
@@ -60,7 +60,8 @@ export default {
       label: "Leadership",
       title: "Those who guide the Foundation",
       honLabel: "Honorary President",
-      honName: "His Eminence Raymond Leo Cardinal Burke",
+      honPrefix: "His Eminence",
+      honName: "Raymond Leo Cardinal Burke",
       honBio:
         "Prefect Emeritus of the Supreme Tribunal of the Apostolic Signatura. Born in Wisconsin in 1948, he was ordained a priest by Pope Paul VI in 1975 and holds a doctorate in canon law from the Pontifical Gregorian University. He served as Bishop of La Crosse and as Archbishop of St. Louis, and was created cardinal by Pope Benedict XVI in 2010.",
       presLabel: "President",
@@ -148,7 +149,8 @@ export default {
         { title: "Regular giving", text: "Recurring gifts that help meet the running costs of the house." },
       ],
       howTitle: "How to give",
-      how: "Giving details will be published here once the Foundation has confirmed them. To speak with the Foundation about a gift, please use the form on this page.",
+      how: "Gifts can be made by bank transfer. To speak with the Foundation about a gift, please use the form on this page.",
+      bank: { title: "Bank transfer", payee: "Payee", iban: "IBAN", bic: "BIC / SWIFT", reason: "Reference", pending: "To be confirmed by the Foundation", copy: "Copy", copied: "Copied" },
       formTitle: "Ask about giving",
       interest: "I am interested in",
       other: "Something else",
@@ -208,7 +210,7 @@ export default {
     },
     creed: {
       latin: "Deum de Deo, lumen de lumine, Deum verum de Deo vero.",
-      gloss: "Dio da Dio, Luce da Luce, Dio vero da Dio vero.",
+      gloss: "Dio da Dio, Luce da Luce, Dio vero da Dio vero.",
       source: "Simbolo niceno-costantinopolitano",
     },
     foundation: {
@@ -235,7 +237,8 @@ export default {
       label: "Organi",
       title: "Chi guida la Fondazione",
       honLabel: "Presidente onorario",
-      honName: "Sua Eminenza il Cardinale Raymond Leo Burke",
+      honPrefix: "Sua Eminenza il Cardinale",
+      honName: "Raymond Leo Burke",
       honBio:
         "Prefetto emerito del Supremo Tribunale della Segnatura Apostolica. Nato nel Wisconsin nel 1948, è stato ordinato sacerdote da papa Paolo VI nel 1975 e ha conseguito il dottorato in diritto canonico presso la Pontificia Università Gregoriana. È stato vescovo di La Crosse e arcivescovo di Saint Louis. Papa Benedetto XVI lo ha creato cardinale nel 2010.",
       presLabel: "Presidente",
@@ -323,7 +326,8 @@ export default {
         { title: "Donazioni periodiche", text: "Contributi ricorrenti per sostenere le spese di gestione della casa." },
       ],
       howTitle: "Come donare",
-      how: "Le modalità di donazione saranno pubblicate qui dopo la conferma della Fondazione. Per parlare con la Fondazione di una donazione è possibile utilizzare il modulo in questa pagina.",
+      how: "Le donazioni possono essere effettuate tramite bonifico bancario. Per parlare con la Fondazione di una donazione è possibile utilizzare il modulo in questa pagina.",
+      bank: { title: "Bonifico bancario", payee: "Intestatario", iban: "IBAN", bic: "BIC / SWIFT", reason: "Causale", pending: "In attesa di conferma dalla Fondazione", copy: "Copia", copied: "Copiato" },
       formTitle: "Informazioni sulle donazioni",
       interest: "Sono interessato a",
       other: "Altro",

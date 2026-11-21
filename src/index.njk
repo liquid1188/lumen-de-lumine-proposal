@@ -36,12 +36,16 @@ permalink: "{{ lang | purl('home') }}"
 
 <section class="section">
   <div class="wrap">
-    <div class="intro reveal">
-      <p class="label">{{ t.foundation.label }}</p>
-      <h2>{{ t.foundation.title }}</h2>
-      {%- for p in t.foundation.p %}
-      <p>{{ p }}</p>
-      {%- endfor %}
+    <div class="lead">
+      <div class="lead-head reveal">
+        <p class="label">{{ t.foundation.label }}</p>
+        <h2>{{ t.foundation.title }}</h2>
+      </div>
+      <div class="lead-text reveal">
+        {%- for p in t.foundation.p %}
+        <p>{{ p }}</p>
+        {%- endfor %}
+      </div>
     </div>
     <ul class="pillars">
       {%- for p in t.pillars %}
@@ -53,7 +57,7 @@ permalink: "{{ lang | purl('home') }}"
 
 <section class="section teaser">
   <div class="wrap teaser-in">
-    <figure class="teaser-art reveal"><img src="{{ '/assets/img/art/sassoferrato.jpg' | url }}" alt="{{ t.institute.marianAlt }}" width="1400" height="1761" loading="lazy"></figure>
+    <figure class="teaser-art framed reveal"><img src="{{ '/assets/img/art/sassoferrato.jpg' | url }}" alt="{{ t.institute.marianAlt }}" width="1400" height="1761" loading="lazy"></figure>
     <div class="teaser-text reveal">
       <p class="label">{{ t.teaser.label }}</p>
       <p class="kicker">{{ t.teaser.kicker }}</p>
@@ -69,13 +73,14 @@ permalink: "{{ lang | purl('home') }}"
     <div class="section-head reveal">
       <p class="label">{{ t.people.label }}</p>
       <h2>{{ t.people.title }}</h2>
+      <div class="orn" aria-hidden="true"><svg><use href="#mark"/></svg></div>
     </div>
-    <div class="leader reveal">
-      <img class="leader-photo" src="{{ '/media/burke.jpg' | url }}" alt="{{ t.people.honName }}" width="620" height="780" loading="lazy">
-      <div class="leader-text">
+    <div class="leader">
+      <div class="leader-photo framed reveal"><img src="{{ '/media/burke.jpg' | url }}" alt="{{ t.people.honPrefix }} {{ t.people.honName }}" width="620" height="780" loading="lazy"></div>
+      <div class="leader-text reveal">
         <p class="role">{{ t.people.honLabel }}</p>
-        <h3>{{ t.people.honName }}</h3>
-        <p>{{ t.people.honBio }}</p>
+        <h3><span class="hon">{{ t.people.honPrefix }}</span> <span class="hon-name">{{ t.people.honName }}</span></h3>
+        <p class="bio">{{ t.people.honBio }}</p>
         <dl class="officers">
           <div><dt>{{ t.people.presLabel }}</dt><dd>{{ t.people.presName }}</dd></div>
         </dl>

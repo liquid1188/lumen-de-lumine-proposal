@@ -31,6 +31,15 @@ permalink: "{{ lang | purl('support') }}"
       <svg class="give-mark" aria-hidden="true"><use href="#mark"/></svg>
       <h2>{{ t.support.howTitle }}</h2>
       <p>{{ t.support.how }}</p>
+      <div class="bank">
+        <h3>{{ t.support.bank.title }}</h3>
+        <dl>
+          <div><dt>{{ t.support.bank.payee }}</dt><dd>{{ site.bank.payee }}</dd></div>
+          <div><dt>{{ t.support.bank.iban }}</dt><dd{% if not site.bank.iban %} class="tbc"{% endif %}>{% if site.bank.iban %}<span id="iban">{{ site.bank.iban }}</span> <button type="button" class="copy" data-copy="#iban" data-done="{{ t.support.bank.copied }}">{{ t.support.bank.copy }}</button>{% else %}{{ t.support.bank.pending }}{% endif %}</dd></div>
+          <div><dt>{{ t.support.bank.bic }}</dt><dd{% if not site.bank.bic %} class="tbc"{% endif %}>{{ site.bank.bic or t.support.bank.pending }}</dd></div>
+          <div><dt>{{ t.support.bank.reason }}</dt><dd>{{ site.bank.reason }}</dd></div>
+        </dl>
+      </div>
     </div>
     <form class="form reveal" action="https://api.web3forms.com/submit" method="POST" data-not-connected="{{ t.form.notConnected }}" data-sending="{{ t.form.sending }}" data-thanks="{{ t.form.thanks }}" data-error="{{ t.form.error }}">
       <h2>{{ t.support.formTitle }}</h2>

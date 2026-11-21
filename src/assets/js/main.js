@@ -37,6 +37,17 @@
     on = !on; try { localStorage.setItem(KEY, on ? "1" : "0"); } catch (e) {} apply(on); btn.style.display = "inline";
   }); }
 
+  // Copy buttons (bank details)
+  document.querySelectorAll(".copy").forEach(function (c) {
+    c.addEventListener("click", function () {
+      var el = document.querySelector(c.dataset.copy); if (!el || !navigator.clipboard) return;
+      var label = c.textContent;
+      navigator.clipboard.writeText(el.textContent.replace(/\s+/g, "")).then(function () {
+        c.textContent = c.dataset.done; setTimeout(function () { c.textContent = label; }, 1600);
+      });
+    });
+  });
+
   // Forms go to Web3Forms with the Foundation's own key. Until that key is set, they only show a notice.
   document.querySelectorAll("form.form").forEach(function (f) {
     f.addEventListener("submit", function (e) {

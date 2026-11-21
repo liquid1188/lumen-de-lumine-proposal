@@ -3,6 +3,7 @@
   "legalName": "Fondazione Lumen de Lumine ETS",
   "proposal": true,
   "web3formsKey": "YOUR-WEB3FORMS-ACCESS-KEY",
+  "bank": { "payee": "Fondazione Lumen de Lumine ETS", "iban": "", "bic": "", "reason": "Donazione volontaria / Voluntary donation" },
   "icjfUrl": "https://liquid1188.github.io/icjf-website",
   "designer": { "name": "Lickity Split Web Design", "url": "https://lickitysplitweb.com" }
 }
